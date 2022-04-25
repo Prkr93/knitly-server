@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 const patterns = require('./data.js');
 
-app.use(cors());
+app.use(cors({ origin: "http://myappurl.com", credentials: true }));
 app.use(express.json());
 
 app.locals.title = 'Knitly Patterns';
@@ -16,7 +16,7 @@ app.listen(app.get('port'), () => {
 
 app.get('/inspirations', (request, response) => {
   let resPatterns = JSON.stringify(app.locals.patterns);
-  response.header("Access-Control-Allow-Origin", "*").status(200).send(resPatterns);
+  response.status(200).send(resPatterns);
 });
 
 app.post('/inspire', (request, response) => {
