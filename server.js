@@ -16,7 +16,7 @@ app.listen(app.get('port'), () => {
 
 app.get('/inspirations', (request, response) => {
   let resPatterns = JSON.stringify(app.locals.patterns);
-  response.status(200).send(resPatterns);
+  response.header("Access-Control-Allow-Origin", "*").status(200).send(resPatterns);
 });
 
 app.post('/inspire', (request, response) => {
