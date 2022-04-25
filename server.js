@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 const patterns = require('./data.js');
 
-app.use(cors({ origin: "http://myappurl.com", credentials: true }));
+app.use(cors());
 app.use(express.json());
 
 app.locals.title = 'Knitly Patterns';
